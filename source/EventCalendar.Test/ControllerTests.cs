@@ -145,8 +145,8 @@ namespace EventCalendar.Test
             // Arrange
             Controller controller = new Controller();
             Person invitor = new Person("Huber", "Max") { MailAddress = "max.huber@x.x", PhoneNumber = "1234567" };
-            controller.CreateEvent(invitor, "First Event", DateTime.Now.AddDays(1));
-            controller.CreateEvent(invitor, "Second Event", DateTime.Now.AddDays(1));
+            controller.CreateEvent(invitor, "First Event", DateTime.Now.AddDays(1), 1); // maxParticipants als Parameter zusätzlich übergeben
+            controller.CreateEvent(invitor, "Second Event", DateTime.Now.AddDays(1), 1); // maxParticipants als Parameter zusätzlich übergeben
             Event ev1 = controller.GetEvent("First Event");
             Event ev2 = controller.GetEvent("Second Event");
             Person participator1 = new Person("Part1", "Hans");
@@ -164,7 +164,7 @@ namespace EventCalendar.Test
             // Arrange
             Controller controller = new Controller();
             Person invitor = new Person("Huber", "Max") { MailAddress = "max.huber@x.x", PhoneNumber = "1234567" };
-            controller.CreateEvent(invitor, "First Event", DateTime.Now.AddDays(1));
+            controller.CreateEvent(invitor, "First Event", DateTime.Now.AddDays(1), 1); // maxParticipants als Parameter zusätzlich übergeben
             Event ev1 = controller.GetEvent("First Event");
             Person participator1 = new Person("Part1", "Hans");
             controller.RegisterPersonForEvent(participator1, ev1);
@@ -462,7 +462,7 @@ namespace EventCalendar.Test
             // Arrange
             Controller controller = new Controller();
             Person invitor = new Person("Huber", "Max") { MailAddress = "max.huber@x.x", PhoneNumber = "1234567" };
-            controller.CreateEvent(invitor, "First Event", DateTime.Now.AddDays(1));
+            controller.CreateEvent(invitor, "First Event", DateTime.Now.AddDays(1), 1); // maxParticipants als Parameter zusätzlich übergeben
             Event ev1 = controller.GetEvent("First Event");
             Person participator1 = new Person("Part1", "Hans");
             // Act
